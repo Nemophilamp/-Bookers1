@@ -1,8 +1,10 @@
 
 <h1>Books</h1>
 <%  @books.each do |book|  %>
-  <p>Title<br> <%= book.title %></p>
+  <p>Title</p>
+  <span><%= book.title %></span>
 
-  <p>Body<br><%= book.body %></p>
+  <p>Body</p>
+  <span><%= book.body %></span>
 
 <% end %>
