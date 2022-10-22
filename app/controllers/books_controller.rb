@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = "List was successfully created"
     # 投稿成功　 へリダイレクト
-      redirect_to 'book_path(@book.id)'
+      redirect_to book_path(@book.id)
     # 投稿が失敗した時newを表示
     else
       render :new
@@ -28,6 +28,12 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
   end
 
    private
