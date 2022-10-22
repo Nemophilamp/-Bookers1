@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def new
     @book = Book.new
+  end
 
   def create
     # データを受け取り新規登録するためのインスタンス作成
@@ -10,7 +11,7 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = "List was successfully created"
     # 投稿成功　 へリダイレクト
-      redirect_to book_path(@book.id)
+      redirect_to 'book_path(@book.id)'
     # 投稿が失敗した時newを表示
     else
       render :new
@@ -27,12 +28,12 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
-  private
+   private
   # ストロングパラメータ
   def book_params
     params.require(:book).permit(:title, :body)
   end
-end
 end
