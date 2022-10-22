@@ -1,6 +1,6 @@
 <h1>New book</h1>
 <!--form_with部分-->
-<%= form_with model: @book, url:'/books', method: :post do |f| %>
+<%= form_with model: @book, url:'/new', method: :post do |f| %>
 <!--バリデーション/エラーメッセージ-->
 <!--日本語化はしない-->
 <% if @book.errors.any? %>

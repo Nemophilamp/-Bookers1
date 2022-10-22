@@ -2,9 +2,12 @@
 <h1>Books</h1>
 <%  @books.each do |book|  %>
   <p>Title</p>
-  <span><%= book.title %></span>
+  <!--一覧画面から詳細画面へ遷移するリンク-->
+  <span>
+   <%= link_to book.title, "/books/#{book.id}" %>
+  </span>
 
   <p>Body</p>
-  <span><%= book.body %></span>
+  <%= link_to book.body, "/books/#{book.id}" %>
 
 <% end %>
