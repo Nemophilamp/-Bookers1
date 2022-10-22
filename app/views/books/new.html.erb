@@ -9,7 +9,7 @@
 <% end %>
 
 <!--form_with部分-->
-<%= form_with model: @book, url:'/new', method: :post do |f| %>
+<%= form_with model: @book, url:'/books', do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
