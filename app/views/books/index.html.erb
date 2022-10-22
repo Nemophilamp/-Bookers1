@@ -3,11 +3,14 @@
 <%  @books.each do |book|  %>
   <p>Title</p>
   <!--一覧画面から詳細画面へ遷移するリンク-->
+  <!-- book_path(book.id)で、レコードのidカラムを指定する-->
   <span>
-   <%= link_to book.title, "/books/#{book.id}" %>
+   <%= link_to book.title, book_path(book.id) %>
   </span>
 
   <p>Body</p>
-  <%= link_to book.body, "/books/#{book.id}" %>
+  <span>
+    <%= link_to book.body, book_path(book.id) %>
+  </span>
 
 <% end %>
