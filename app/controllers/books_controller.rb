@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     # データをデータベースに保存するためのsaveメソッド実行
     # バリデーション/必須入力設定/投稿が成功した時に
     if @book.save
-      flash[:notice] = "book was successfully created"
+      flash[:notice] = "Book was successfully created"
     # 投稿成功　 へリダイレクト
       redirect_to book_path(@book.id)
     # 投稿が失敗した時newを表示

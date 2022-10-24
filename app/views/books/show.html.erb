@@ -1,8 +1,9 @@
 <!--createサクセスメッセージ-->
-<% if flash[:notice] %>
+<p id="notice">
+  <% if flash[:notice] %>
   <%= flash[:notice ]%>
 <% end %>
-
+</p>
 
 <h2>Title</h2>
 <p><%= @book.title %></p>
