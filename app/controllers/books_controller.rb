@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     # データをデータベースに保存するためのsaveメソッド実行
     # バリデーション/必須入力設定/投稿が成功した時に
     if @book.save
-      flash[:notice] = "List was successfully created"
+      flash[:notice] = "book was successfully created"
     # 投稿成功　 へリダイレクト
       redirect_to book_path(@book.id)
     # 投稿が失敗した時newを表示
@@ -33,16 +33,19 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(book_params)
-    redirect_to book_path(book.id)
+    redirect_to book_path(@book.id)
   end
 
     # データ（レコード）を1件取得
     # データ（レコード）を削除
     # 投稿一覧画面へリダイレクト
+    # 削除成功メッセージ,　緑
   def destroy
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to '/books'
+    if book.destroy
+      flash[:notice] = "Book was successfully destroyed."
+      redirect_to "/books"
+    end
   end
 
    private
