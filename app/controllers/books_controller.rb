@@ -14,12 +14,14 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     # 投稿が失敗した時newを表示
     else
-      render :new
+      @books = Book.all
+      render :index
     end
   end
 
   def index
     @books = Book.all
+    @book = Book.new
   end
 
   def show
