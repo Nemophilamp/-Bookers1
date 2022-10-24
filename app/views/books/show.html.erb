@@ -1,14 +1,29 @@
-<!--createサクセスメッセージ-->
-<p id="notice">
-  <% if flash[:notice] %>
-  <%= flash[:notice ]%>
-<% end %>
-</p>
+  <head>
+    <link rel="stylesheet" href="/books.sccs">
+  </head>
 
-<h2>Title</h2>
-<p><%= @book.title %></p>
-
-<h2>Body</h2>
-<p><%= @book.body %></p>
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Back", "/books" %>
+<body>
+  <!--createサクセスメッセージ-->
+  <p id="notice">
+    <% if flash[:notice] %>
+    <%= flash[:notice ]%>
+  <% end %>
+  </p>
+  
+  <p id="notice"></p>
+  <p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+  </p>
+  
+  <p>
+  <strong>Body:</strong>
+  <%= @book.body %>
+  </p>
+  
+  <p class="float">
+    <%= link_to "Edit", edit_book_path(@book.id) %>
+     | 
+    <%= link_to "Back", "/books" %>
+  </p>
+</body>
