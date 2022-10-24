@@ -36,6 +36,15 @@ class BooksController < ApplicationController
     redirect_to book_path(book.id)
   end
 
+    # データ（レコード）を1件取得
+    # データ（レコード）を削除
+    # 投稿一覧画面へリダイレクト
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to '/books'
+  end
+
    private
   # ストロングパラメータ
   def book_params
