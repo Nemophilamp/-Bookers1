@@ -2,9 +2,9 @@
 <!--バリデーション/エラーメッセージ-->
 <!--日本語化はしない-->
 <% if @book.errors.any? %>
-  <div><%= @book.errors.count %></div>
+  <div><%= @book.errors.count %> errors prohibited this book from being saved:</div>
   <% @book.errors.full_messages.each do |message| %>
-    <div><%= message %></div>
+    <li><%= message %><br<li>
   <% end %>
 <% end %>
 
