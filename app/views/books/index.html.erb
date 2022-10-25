@@ -36,14 +36,15 @@
     <div class="New_book">
     <!--バリデーション/エラーメッセージ-->
     <!--日本語化はしない-->
-        <% if @book.errors.any? %>
-         <div class="error_message">
-         <div><%= @book.errors.count %> errors prohibited this book from being saved:</div>
-          <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %><br><li>
+  <% if @book.errors.any? %>
+    <div class="error_message">
+    <div><%= @book.errors.count %> errors prohibited this book from being saved:</div>
+      <ul><% @book.errors.full_messages.each do |message| %>
+        <li><%= message %><br><li>
           <% end %>
-        <% end %>
-            </div>
+      </ul>
+    </div>
+  <% end %>
     
     <!--form_with部分-->
     <!--New  bookと、タイトル、ボディに隙間がほしい-->
