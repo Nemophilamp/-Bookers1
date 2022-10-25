@@ -19,8 +19,9 @@ class BooksController < ApplicationController
     end
   end
 
+# ID若い順＝新しいものから　降順 created_at: 'asc'
   def index
-    @books = Book.all
+    @books = Book.all.order(created_at: 'desc')
     @book = Book.new
   end
 
