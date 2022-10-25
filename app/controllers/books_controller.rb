@@ -29,10 +29,13 @@ class BooksController < ApplicationController
   end
 
   def update
-   if book = Book.find(params[:id])
-    book.update(book_params)
-    flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "Book was successfully updated."
+      redirect_to book_path(@book.id)
+    else
+      @books = Book.all
+      render :edit
     end
   end
     # データ（レコード）を1件取得
@@ -41,10 +44,9 @@ class BooksController < ApplicationController
     # 削除成功メッセージ,　緑
   def destroy
     book = Book.find(params[:id])
-    if book.destroy
-      flash[:notice] = "Book was successfully destroyed."
-      redirect_to "/books"
-    end
+    book.destroy
+    flash[:notice] = "Book was successfully destroyed."
+    redirect_to "/books"
   end
 
    private
