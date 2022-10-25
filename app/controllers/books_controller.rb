@@ -1,15 +1,16 @@
 class BooksController < ApplicationController
-  def new
+  def index
+    @books = Book.all
     @book = Book.new
   end
-
+  
   def create
     # データを受け取り新規登録するためのインスタンス作成
     @book = Book.new(book_params)
     # データをデータベースに保存するためのsaveメソッド実行
     # バリデーション/必須入力設定/投稿が成功した時に
     if @book.save
-      flash[:notice] = "Book was successfully created"
+      flash[:notice] = "Book was successfully created."
     # 投稿成功　 へリダイレクト
       redirect_to book_path(@book.id)
     # 投稿が失敗した時newを表示
@@ -17,12 +18,6 @@ class BooksController < ApplicationController
       @books = Book.all
       render :index
     end
-  end
-
-# ID若い順＝新しいものから　降順 created_at: 'asc'
-  def index
-    @books = Book.all.order(created_at: 'desc')
-    @book = Book.new
   end
 
   def show
