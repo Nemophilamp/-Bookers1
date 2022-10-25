@@ -29,11 +29,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
+   if book = Book.find(params[:id])
     book.update(book_params)
+    flash[:notice] = "Book was successfully updated."
     redirect_to book_path(book.id)
+    end
   end
-
     # データ（レコード）を1件取得
     # データ（レコード）を削除
     # 投稿一覧画面へリダイレクト
