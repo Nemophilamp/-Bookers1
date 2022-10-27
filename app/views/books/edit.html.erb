@@ -8,7 +8,7 @@
     <div class="error_message">
     <div><%= @book.errors.count %> errors prohibited this book from being saved:</div>
       <ul><% @book.errors.full_messages.each do |message| %>
-        <li><%= message %><br><li>
+        <li><%= message %><br></li>
           <% end %>
       </ul>
     </div>
@@ -24,10 +24,10 @@
     <%= f.text_area :body %>
   </div>
   <%= f.submit 'Update Book' %>
-  
+
     <p class="float">
     <%= link_to "Show", book_path(@book.id) %>
-     | 
+     |
     <%= link_to "Back", "/books" %>
   </p>
 
