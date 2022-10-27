@@ -1,4 +1,7 @@
 <h2>New book</h2>
+<!--form_with部分-->
+<%= form_with model: @book, url:'/books' do |f| %>
+
 <!--バリデーション/エラーメッセージ-->
 <!--日本語化はしない-->
 <% if @book.errors.any? %>
@@ -8,8 +11,6 @@
   <% end %>
 <% end %>
 
-<!--form_with部分-->
-<%= form_with model: @book, url:'/books' do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
